@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "gym.h"
 
 void hienThiDanhSach(HoiVien ds[], int n)
