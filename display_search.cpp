@@ -1,5 +1,6 @@
 #include "gym.h"
 #include <stdio.h>
+
 void hienThiDanhSach(HoiVien ds[], int n)
 {
     if (n == 0) {
