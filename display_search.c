@@ -12,7 +12,6 @@ void hienThiDanhSach(HoiVien ds[], int n)
            "STT", "Ma HV", "Ho va Ten", "Goi Tap", "So Thang", "Can Nang", "Gia Tien");
     printf("-----------------------------------------------------------------------------------\n");
 
-    // In tung dong du lieu
     for (int i = 0; i < n; i++)
     {
         printf("| %-4d | %-10s | %-20s | %-10s | %-10d | %-8.1f | %-12.0f |\n",
