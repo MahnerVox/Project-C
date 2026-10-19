@@ -1,27 +1,34 @@
-#include <stdio.h>
-#include <gym.h>
+#include "gym.h"
 
-typedef struct
-{
-    char maHoiVien[15];
-    char hoTen[50];
-    char goiTap[20];
-    float canNang;
-    float giatien;
-} HoiVien;
-
-void themHoiVien(HoiVien ds[], int *n)
-{
-
-}
 void hienThiDanhSach(HoiVien ds[], int n)
 {
+    if (n == 0) {
+        printf("\n[Thong bao] Danh sach hoi vien hien dang rong!\n");
+        return;
+    }
 
+    printf("\n================================ DANH SACH HOI VIEN ================================\n");
+    printf("| %-4s | %-10s | %-20s | %-10s | %-10s | %-8s | %-12s |\n",
+           "STT", "Ma HV", "Ho va Ten", "Goi Tap", "So Thang", "Can Nang", "Gia Tien");
+    printf("-----------------------------------------------------------------------------------\n");
+
+    // In tung dong du lieu
+    for (int i = 0; i < n; i++)
+    {
+        printf("| %-4d | %-10s | %-20s | %-10s | %-10d | %-8.1f | %-12.0f |\n",
+               i + 1,
+               ds[i].maHoiVien,
+               ds[i].hoTen,
+               ds[i].goiTap,
+               ds[i].soThangDangKy,
+               ds[i].canNang,
+               ds[i].giaTien);
+    }
+    printf("===================================================================================\n");
 }
 
 int main()
 {
-    themHoiVien();
     hienThiDanhSach();
     return 0;
 }
