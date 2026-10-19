@@ -26,9 +26,3 @@ void hienThiDanhSach(HoiVien ds[], int n)
     }
     printf("===================================================================================\n");
 }
-
-int main()
-{
-    hienThiDanhSach();
-    return 0;
-}
