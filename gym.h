@@ -21,4 +21,7 @@ float nhapSoThucDuong(char thongBao[]);
 void themHoiVien(HoiVien ds[], int *n);
 void hienThiDanhSach(HoiVien ds[], int n);
 
+void suaHoiVien(HoiVien ds[], int n);
+void xoaHoiVien(HoiVien ds[], int *n);
+
 #endif
