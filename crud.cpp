@@ -76,3 +76,36 @@ void themHoiVien(HoiVien ds[], int *n) {
 
     printf("=> Cap nhat thong tin hoi vien thanh cong!\n");
 }
+
+void xoaHoiVien(HoiVien ds[], int *n) {
+    if (*n == 0) {
+        printf("\n[Thong bao] Danh sach hoi vien dang rong!\n");
+        return;
+    }
+
+    char maXoa[15];
+    printf("\n=== XOA HOI VIEN ===\n");
+    printf("Nhap ma hoi vien can xoa: ");
+    scanf("%s", maXoa);
+    xoaBoNhoDem();
+
+    int viTri = -1;
+    for (int i = 0; i < *n; i++) {
+        if (soSanhChuoi(ds[i].maHoiVien, maXoa) == 1) {
+            viTri = i;
+            break;
+        }
+    }
+
+    if (viTri == -1) {
+        printf("[Loi] Khong tim thay hoi vien co ma: %s\n", maXoa);
+        return;
+    }
+
+    for (int i = viTri; i < *n - 1; i++) {
+        ds[i] = ds[i + 1];
+    }
+    (*n)--;
+
+    printf("=> Da xoa thanh cong hoi vien co ma: %s\n", maXoa);
+}
