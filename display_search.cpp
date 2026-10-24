@@ -13,7 +13,6 @@ void hienThiDanhSach(HoiVien ds[], int n)
            "STT", "Ma HV", "Ho va Ten", "Goi Tap", "So Thang", "Can Nang", "Gia Tien");
     printf("-----------------------------------------------------------------------------------\n");
 
-    // In tung dong du lieu
     for (int i = 0; i < n; i++)
     {
         printf("| %-4d | %-10s | %-20s | %-10s | %-10d | %-8.1f | %-12.0f |\n",
@@ -27,6 +26,7 @@ void hienThiDanhSach(HoiVien ds[], int n)
     }
     printf("===================================================================================\n");
 }
+<<<<<<< HEAD
 void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
 {
     
@@ -37,3 +37,5 @@ int main()
     hienThiDanhSach();
     return 0;
 }
+=======
+>>>>>>> 9ae31ee84a6ae1b02df9920b64be4eb9f62fcc2e
