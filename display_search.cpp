@@ -1,5 +1,6 @@
 #include "gym.h"
 #include <stdio.h>
+#include <string.h>
 
 void hienThiDanhSach(HoiVien ds[], int n)
 {
@@ -26,10 +27,30 @@ void hienThiDanhSach(HoiVien ds[], int n)
     }
     printf("===================================================================================\n");
 }
-<<<<<<< HEAD
+
 void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
 {
-    
+    int timThay = 0;
+    printf("\n--> Ket qua tim kiem voi tu khoa \"%s\":\n", tuKhoa);
+
+    HoiVien kq[100];
+    int dem = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        // Kiem tra tu khoa co trong maHoiVien or hoTen
+        if (strstr(ds[i].maHoiVien, tuKhoa) != NULL || strstr(ds[i].hoTen, tuKhoa) != NULL)
+        {
+            kq[dem] = ds[i];
+            dem++;
+        }
+    }
+    if (dem > 0)
+    {
+        hienThiDanhSach(kq, dem);
+    } else
+    {
+        printf("[Thong bao] Khong tim thay hoi vien nao phu hop!\n");
+    }
 }
 
 int main()
@@ -37,5 +58,4 @@ int main()
     hienThiDanhSach();
     return 0;
 }
-=======
->>>>>>> 9ae31ee84a6ae1b02df9920b64be4eb9f62fcc2e
+
