@@ -1,6 +1,7 @@
 #include "gym.h"
 #include <stdio.h>
 #include <string.h>
+#include <windows.h>
 
 void hienThiDanhSach(HoiVien ds[], int n)
 {
@@ -51,6 +52,30 @@ void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
     {
         printf("[Thong bao] Khong tim thay hoi vien nao phu hop!\n");
     }
+}
+
+void hieuUngChuyenCanh()
+{
+    // Chuyen canh va cho doi
+    for (int i = 0; i < 30; ++i)
+    {
+        printf("\n");
+        Sleep(30);
+    }
+
+    system("cls");
+
+    printf("\n\n\n\n\n\n");
+    const char* loadingText = "           L O A D I N G . . .";
+    for (int i = 0; loadingText[i] != '\0'; ++i)
+    {
+        printf("%c", loadingText[i]);
+        Sleep(50);
+    }
+
+    Sleep(1000);
+
+    system("cls");
 }
 
 int main()
