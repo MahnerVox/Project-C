@@ -65,7 +65,7 @@ void hieuUngChuyenCanh()
 
     system("cls");
 
-    printf("\n\n\n\n\n\n");
+    printf("\n\n\n\n\n\n\n\n\n\n\n");
     const char* loadingText = "           L O A D I N G . . .";
     for (int i = 0; loadingText[i] != '\0'; ++i)
     {
