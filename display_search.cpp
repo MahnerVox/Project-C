@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "gym.h"
+#include <stdio.h>
 
 void hienThiDanhSach(HoiVien ds[], int n)
 {
@@ -26,6 +26,10 @@ void hienThiDanhSach(HoiVien ds[], int n)
                ds[i].giaTien);
     }
     printf("===================================================================================\n");
+}
+void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
+{
+    
 }
 
 int main()
