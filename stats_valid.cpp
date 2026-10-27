@@ -84,3 +84,43 @@ void inPhanLoaiBMI(float bmi)
         printf("Beo phi");
     }
 }
+float tinhTongDoanhThu(HoiVien ds[], int n) {
+    float tong = 0;
+    int i;
+    for (int i; i < n; i++) {
+        tong += ds[i].chiPhi;
+    } 
+    return tong;
+}
+float tinhCanNangTrungBinh(HoiVien ds[], int n) {
+    float tong = 0;
+    int i;
+    if (n <= 0) {
+        return 0;
+    }
+    for (i = 0; i < n; i++) {
+        tong += ds[i].canNang;
+    }
+    return tong / n;
+}
+int demGoiVip(HoiVien ds[], int n) {
+    int dem = 0, i;
+    for (i = 0; i < n; i++) {
+        if (soSanhChuoi(ds[i].goiTap, "VIP") == 0) {
+            dem++;
+        }
+    }
+    return dem;
+}
+void inThongKe(HoiVien ds[], int n) {
+    if (n <= 0) {
+        printf("Danh sach rong, chua co du lieu de thong ke!\n");
+        return;
+    }
+    printf("========== THONG KE ==========\n");
+    printf("Tong so hoi vien      : %d\n", n);
+    printf("Tong doanh thu        : %.0f VND\n", tinhTongDoanhThu(ds, n));
+    printf("Can nang trung binh   : %.1f kg\n", tinhCanNangTrungBinh(ds, n));
+    printf("So hoi vien goi VIP   : %d\n", demGoiVIP(ds, n));
+    printf("==============================\n");
+}
