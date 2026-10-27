@@ -38,7 +38,6 @@ void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
     int dem = 0;
     for (int i = 0; i < n; ++i)
     {
-        // Kiem tra tu khoa co trong maHoiVien or hoTen
         if (strstr(ds[i].maHoiVien, tuKhoa) != NULL || strstr(ds[i].hoTen, tuKhoa) != NULL)
         {
             kq[dem] = ds[i];
@@ -56,7 +55,6 @@ void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
 
 void hieuUngChuyenCanh()
 {
-    // Chuyen canh va cho doi
     for (int i = 0; i < 30; ++i)
     {
         printf("\n");
@@ -76,6 +74,24 @@ void hieuUngChuyenCanh()
     Sleep(1000);
 
     system("cls");
+}
+
+void sapXepTheoGiaTien(HoiVien ds[], int n, int tangDan)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            int dieuKien = tangDan ? (ds[i].giaTien > ds[j].giaTien) : (ds[i].giaTien < ds[j].giaTien);
+            if (dieuKien)
+            {
+                HoiVien temp = ds[i];
+                ds[i] = ds[j];
+                ds[j] = temp;
+            }
+        }
+    }
+    printf("\n[Thong bao] Da sap xep danh sach theo gia tien (%s)!\n", tangDan ? "Tang dan" : "Giam dan");
 }
 
 int main()
