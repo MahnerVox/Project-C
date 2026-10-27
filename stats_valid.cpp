@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "gym.h"
 #include "stats_valid.h"
+
 void xoaBoNhoDem()
 {
     int c;
@@ -86,26 +87,24 @@ void inPhanLoaiBMI(float bmi)
 }
 float tinhTongDoanhThu(HoiVien ds[], int n) {
     float tong = 0;
-    int i;
-    for (int i; i < n; i++) {
-        tong += ds[i].chiPhi;
+    for (int i = 0; i < n; i++) {
+        tong += ds[i].giaTien; 
     } 
     return tong;
 }
 float tinhCanNangTrungBinh(HoiVien ds[], int n) {
     float tong = 0;
-    int i;
     if (n <= 0) {
         return 0;
     }
-    for (i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         tong += ds[i].canNang;
     }
     return tong / n;
 }
 int demGoiVip(HoiVien ds[], int n) {
-    int dem = 0, i;
-    for (i = 0; i < n; i++) {
+    int dem = 0;
+    for (int i = 0; i < n; i++) {
         if (soSanhChuoi(ds[i].goiTap, "VIP") == 0) {
             dem++;
         }
@@ -121,6 +120,6 @@ void inThongKe(HoiVien ds[], int n) {
     printf("Tong so hoi vien      : %d\n", n);
     printf("Tong doanh thu        : %.0f VND\n", tinhTongDoanhThu(ds, n));
     printf("Can nang trung binh   : %.1f kg\n", tinhCanNangTrungBinh(ds, n));
-    printf("So hoi vien goi VIP   : %d\n", demGoiVIP(ds, n));
+    printf("So hoi vien goi VIP   : %d\n", demGoiVip(ds, n));
     printf("==============================\n");
 }
