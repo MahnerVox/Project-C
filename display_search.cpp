@@ -93,10 +93,3 @@ void sapXepTheoGiaTien(HoiVien ds[], int n, int tangDan)
     }
     printf("\n[Thong bao] Da sap xep danh sach theo gia tien (%s)!\n", tangDan ? "Tang dan" : "Giam dan");
 }
-
-int main()
-{
-    hienThiDanhSach();
-    return 0;
-}
-
