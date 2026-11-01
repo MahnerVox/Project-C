@@ -60,16 +60,15 @@ void hienThiDanhSach(HoiVien ds[], int n)
            "STT", "Ma HV", "Ho va Ten", "Goi Tap", "So Thang", "Can Nang", "Chieu Cao", "Gia Tien");
     inDuongKe('-');
 
-
-    for (int i = 0; i < n; i++)
-    {
-        printf("| %-4d | %-10s | %-20s | %-10s | %-10d | %-8.1f | %-12.0f |\n",
+    for (int i = 0; i < n; i++) {
+        printf("| %-4d | %-10s | %-20s | %-10s | %-10d | %-8.1f | %-9.2f | %-12.0f |\n",
                i + 1,
                ds[i].maHoiVien,
                ds[i].hoTen,
                ds[i].goiTap,
                ds[i].soThangDangKy,
                ds[i].canNang,
+               ds[i].chieuCao,
                ds[i].giaTien);
     }
     inDuongKe('=');
@@ -110,23 +109,25 @@ void hieuUngChuyenCanh()
     for (int i = 0; loadingText[i] != '\0'; ++i)
     {
         printf("%c", loadingText[i]);
-        Sleep(10);
+        nghi(10);
     }
 
-    Sleep(300);
+    nghi(300);
 
     system("cls");
 }
 
 void sapXepTheoGiaTien(HoiVien ds[], int n, int tangDan)
 {
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = i + 1; j < n; j++)
-        {
+    if (n <= 0) {
+        printf("\n[Thong bao] Danh sach hoi vien hien dang rong!\n");
+        return;
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
             int dieuKien = tangDan ? (ds[i].giaTien > ds[j].giaTien) : (ds[i].giaTien < ds[j].giaTien);
-            if (dieuKien)
-            {
+            if (dieuKien) {
                 HoiVien temp = ds[i];
                 ds[i] = ds[j];
                 ds[j] = temp;
@@ -134,5 +135,4 @@ void sapXepTheoGiaTien(HoiVien ds[], int n, int tangDan)
         }
     }
     printf("\n[Thong bao] Da sap xep danh sach theo gia tien (%s)!\n", tangDan ? "Tang dan" : "Giam dan");
-    hienThiDanhSach(ds, n);
 }
