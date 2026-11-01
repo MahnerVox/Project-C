@@ -68,10 +68,10 @@ void hieuUngChuyenCanh()
     for (int i = 0; loadingText[i] != '\0'; ++i)
     {
         printf("%c", loadingText[i]);
-        Sleep(50);
+        Sleep(10);
     }
 
-    Sleep(1000);
+    Sleep(300);
 
     system("cls");
 }
