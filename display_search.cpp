@@ -1,7 +1,12 @@
 #include "gym.h"
+#include "stats_valid.h"
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include <windows.h>
+
+#ifdef _WIN32
+#define LENH_XOA_MAN_HINH "cls"
 
 void hienThiDanhSach(HoiVien ds[], int n)
 {
