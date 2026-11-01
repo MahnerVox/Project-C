@@ -7,6 +7,43 @@
 
 #ifdef _WIN32
 #define LENH_XOA_MAN_HINH "cls"
+static void nghi(int ms)
+{
+    Sleep(ms);
+}
+
+#else
+#include <unistd.h>
+#define LENH_XOA_MAN_HINH "clear"
+static void nghi(int ms)
+{
+    usleep((useconds_t)ms * 1000);
+}
+
+#endif
+#define DO_RONG_BANG 108
+static void inDuongKe(char c)
+{
+    for (int i = 0; i < DO_RONG_BANG; i++) {
+        putchar(c);
+    }
+    putchar('\n');
+}
+
+static int chuaChuoiKhongPhanBietHoa(const char s[], const char tuKhoa[])
+{
+    for (int i = 0; s[i] != '\0'; i++) {
+        int j = 0;
+        while (tuKhoa[j] != '\0' && s[i + j] != '\0' &&
+               tolower((unsigned char)s[i + j]) == tolower((unsigned char)tuKhoa[j])) {
+            j++;
+        }
+        if (tuKhoa[j] == '\0') {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void hienThiDanhSach(HoiVien ds[], int n)
 {
@@ -15,10 +52,14 @@ void hienThiDanhSach(HoiVien ds[], int n)
         return;
     }
 
-    printf("\n================================ DANH SACH HOI VIEN ================================\n");
-    printf("| %-4s | %-10s | %-20s | %-10s | %-10s | %-8s | %-12s |\n",
-           "STT", "Ma HV", "Ho va Ten", "Goi Tap", "So Thang", "Can Nang", "Gia Tien");
-    printf("-----------------------------------------------------------------------------------\n");
+    printf("\n");
+    inDuongKe('=');
+    printf("%*s\n", (DO_RONG_BANG + 18) / 2, "DANH SACH HOI VIEN");
+    inDuongKe('=');
+    printf("| %-4s | %-10s | %-20s | %-10s | %-10s | %-8s | %-9s | %-12s |\n",
+           "STT", "Ma HV", "Ho va Ten", "Goi Tap", "So Thang", "Can Nang", "Chieu Cao", "Gia Tien");
+    inDuongKe('-');
+
 
     for (int i = 0; i < n; i++)
     {
@@ -31,7 +72,7 @@ void hienThiDanhSach(HoiVien ds[], int n)
                ds[i].canNang,
                ds[i].giaTien);
     }
-    printf("===================================================================================\n");
+    inDuongKe('=');
 }
 
 void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
