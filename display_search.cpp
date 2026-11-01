@@ -77,24 +77,20 @@ void hienThiDanhSach(HoiVien ds[], int n)
 
 void timKiemHoiVien(HoiVien ds[], int n, const char tuKhoa[])
 {
-    int timThay = 0;
     printf("\n--> Ket qua tim kiem voi tu khoa \"%s\":\n", tuKhoa);
 
-    HoiVien kq[100];
+    HoiVien kq[MAX_HOI_VIEN];
     int dem = 0;
-    for (int i = 0; i < n; ++i)
-    {
-        if (strstr(ds[i].maHoiVien, tuKhoa) != NULL || strstr(ds[i].hoTen, tuKhoa) != NULL)
-        {
+    for (int i = 0; i < n; ++i) {
+        if (chuaChuoiKhongPhanBietHoa(ds[i].maHoiVien, tuKhoa) ||
+            chuaChuoiKhongPhanBietHoa(ds[i].hoTen, tuKhoa)) {
             kq[dem] = ds[i];
             dem++;
         }
     }
-    if (dem > 0)
-    {
+    if (dem > 0) {
         hienThiDanhSach(kq, dem);
-    } else
-    {
+    } else {
         printf("[Thong bao] Khong tim thay hoi vien nao phu hop!\n");
     }
 }
